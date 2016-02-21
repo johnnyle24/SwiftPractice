@@ -7,16 +7,12 @@
 //
 
 import Foundation
-//
-//  Handle.swift
-//  Brush Chooser
-//
-//  Created by Johnny Le on 2/8/16.
-//  Copyright © 2016 Johnny Le. All rights reserved.
-//
 
 import UIKit
 
+/*
+    A place holder for a future subview and only is used for borders at the moment
+*/
 class FrontPanel: UIView {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)

@@ -1,5 +1,5 @@
 //
-//  FrontPanel.swift
+//  Preview.swift
 //  Brush Chooser
 //
 //  Created by Johnny Le on 2/9/16.
@@ -7,16 +7,10 @@
 //
 
 import Foundation
-//
-//  Handle.swift
-//  Brush Chooser
-//
-//  Created by Johnny Le on 2/8/16.
-//  Copyright © 2016 Johnny Le. All rights reserved.
-//
 
 import UIKit
 
+//The preview screen
 class Preview: UIView {
     var red: CGFloat = 1.0
     var green: CGFloat = 1.0
@@ -35,19 +29,9 @@ class Preview: UIView {
         
         let context: CGContext? = UIGraphicsGetCurrentContext()
         
-//        var rectRect: CGRect = CGRectZero
-//        rectRect.size.width = bounds.width
-//        rectRect.size.height = bounds.height
-//        rectRect.origin.x = 0.0
-//        rectRect.origin.y = 0.0
-        
-        //Line for Previewing!
+        //The Line for Previewing!
         xBegin = self.bounds.width*0.2
         yBegin = self.bounds.height*0.5
-        
-//        CGContextAddRect(context, rectRect)
-//        CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
-//        CGContextFillRect(context, rectRect)
         
         CGContextMoveToPoint(context, xBegin, yBegin)
         CGContextAddLineToPoint(context, 90.0, 40.0)
@@ -57,8 +41,7 @@ class Preview: UIView {
         CGContextAddLineToPoint(context, 170.0, 120.0)
         CGContextAddLineToPoint(context, 200.0, 180.0)
         CGContextAddLineToPoint(context, 70.0, 70.0)
-        
-        //CGContextSetStrokeColorSpace(context, CGColorSpaceCreateDeviceRGB())
+
         CGContextSetStrokeColorWithColor(context,
             color)
         
@@ -70,6 +53,7 @@ class Preview: UIView {
         
     }
     
+    //Changes the opacity
     func setColorHue(hue2: CGFloat){
         hue = hue2
         
@@ -77,6 +61,7 @@ class Preview: UIView {
         setNeedsDisplay()
     }
     
+    //Changes the rgb values of the color
     func setColor(r: CGFloat, g: CGFloat, b: CGFloat) {
         red = r
         green = g
@@ -86,22 +71,25 @@ class Preview: UIView {
         setNeedsDisplay()
     }
     
+    //Changes the joints of the line
     func setJoin(newjoin: CGLineJoin){
         join = newjoin
         setNeedsDisplay()
     }
     
+    //Changes the end caps of the line
     func setCap(newCap: CGLineCap){
         cap = newCap
         setNeedsDisplay()
     }
     
-    
+    //Changes the width of the line
     func setWidth(value: Double){
         print("The Hue is  \(value)")
         
         lineWidth += value
         
+        //Prevents the line width from growing larger than 50.0 and smaller than 0.5
         if (lineWidth < 0.5) {
             lineWidth = 0.5
         }
@@ -109,6 +97,7 @@ class Preview: UIView {
             lineWidth = 50.0
         }
         
+        //Redraws the view
         setNeedsDisplay()
     }
     

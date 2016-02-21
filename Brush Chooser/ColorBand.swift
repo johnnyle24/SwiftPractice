@@ -1,5 +1,5 @@
 //
-//  FrontPanel.swift
+//  ColorBand.swift
 //  Brush Chooser
 //
 //  Created by Johnny Le on 2/9/16.
@@ -7,23 +7,17 @@
 //
 
 import Foundation
-//
-//  Handle.swift
-//  Brush Chooser
-//
-//  Created by Johnny Le on 2/8/16.
-//  Copyright © 2016 Johnny Le. All rights reserved.
-//
 
 import UIKit
 
+//The Gradient that gets toggled on and off
 class ColorBand: UIControl {
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         
         let context: CGContext? = UIGraphicsGetCurrentContext()
         
-        // Gradient!!!!!
+        // Gradient!
         let currentContext = UIGraphicsGetCurrentContext()
         
         CGContextSaveGState(currentContext);
@@ -56,8 +50,6 @@ class ColorBand: UIControl {
         let option: CGGradientDrawingOptions = CGGradientDrawingOptions()
         
         CGContextDrawLinearGradient(currentContext,gradient,startPoint,endPoint, option)
-        
-        //CGContextDrawRadialGradient(context, gradient, startPoint, 50, endPoint, 50, option)
         
         CGContextRestoreGState(currentContext);
         
