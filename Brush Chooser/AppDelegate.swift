@@ -180,7 +180,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    
+    //Changes the joints of the drawing
     func joinKnobTurned()
     {
         let newJoin: CGLineJoin!
@@ -200,6 +200,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         preview.setJoin(newJoin)
     }
     
+    //Actually changes the opacity of the drawing
     func colorKnobTurned()
     {
         let hue2 = (knobBank.colorKnob.angle + M_PI)/(M_PI*2)
@@ -207,8 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         preview.setColorHue(CGFloat(hue2))
     }
     
-    
-    
+    //Toggles the slider and the gradient view
     func switchFlipped()
     {
         grad = !grad

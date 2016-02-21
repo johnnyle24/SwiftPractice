@@ -1,5 +1,5 @@
 //
-//  Knob.swift
+//  Triangle.swift
 //  Brush Chooser
 //
 //  Created by Johnny Le on 2/8/16.
@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Same the knob class but it creates a toggle triangle instead
 class Triangle: UIControl {
     var grad: Bool = false;
     
@@ -48,7 +49,6 @@ class Triangle: UIControl {
         let context: CGContext? = UIGraphicsGetCurrentContext()
         
         let lineWidth: CGFloat = 3
-        //        let knobRect: CGRect = CGRectMake(lineWidth * 0.5, lineWidth * 0.5, bounds.width - lineWidth, bounds.width - lineWidth)
         
         _knobRect.size.width = bounds.width
         _knobRect.size.height = _knobRect.size.width
@@ -86,15 +86,6 @@ class Triangle: UIControl {
         CGContextSetLineWidth(context, lineWidth)
         CGContextStrokePath(context)
         
-        
-        //Knob Circle
-        
-        //        let originX: CGFloat = _knobRect.width/2
-        //        let originY: CGFloat = _knobRect.height/2
-        
-        //Knob Circle Angle Calculator
-        
-//        let knobRadius: CGFloat = _knobRect.width * 0.39
         var nibCenter: CGPoint = CGPointZero
         nibCenter.x = _knobRect.midX
         nibCenter.y = _knobRect.midY
@@ -108,18 +99,9 @@ class Triangle: UIControl {
         CGContextSetFillColorWithColor(context, UIColor.whiteColor().CGColor)
         CGContextFillEllipseInRect(context, nibRect)
         
-        // Knob Line
-        
-        //        CGContextMoveToPoint(context, originX, originY)
-        //        CGContextAddLineToPoint(context, nibRect.origin.x, nibRect.origin.y)
-        //        CGContextDrawPath(context, CGPathDrawingMode.Stroke)
-        
         CGContextAddEllipseInRect(context, nibRect)
         CGContextSetFillColorWithColor(context, UIColor.clearColor().CGColor)
         CGContextFillPath(context)
-        
-        
-        //TODO: Create Gradient for Knobs
         
     }
     

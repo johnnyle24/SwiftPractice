@@ -10,6 +10,7 @@ import UIKit
 
 class KnobBankView: UIView {
     
+    //Controls various values such as labels and border colors
     var borderColor: UIColor = UIColor.blackColor()
     var borderWidth: CGFloat = 5
     var knobSize: CGFloat { return self.bounds.height*0.6 }
@@ -19,8 +20,10 @@ class KnobBankView: UIView {
     var coLabel: UILabel!
     var tLabel: UILabel!
     
+    //Allows for even spacing
     private var knobOriginY: CGFloat { return (self.bounds.height - knobSize) * 0.5 }
     
+    //Instantiates the knobs and switches
     var triSwitch: Triangle!
     var widthKnob: Knob!
     var capKnob: Knob!
@@ -32,7 +35,7 @@ class KnobBankView: UIView {
         
         if let context = UIGraphicsGetCurrentContext() {
             
-            // Gradient!!!!!
+            // Gradient!
             let currentContext = UIGraphicsGetCurrentContext()
             
             CGContextSaveGState(currentContext);
@@ -67,6 +70,8 @@ class KnobBankView: UIView {
             CGContextDrawLinearGradient(currentContext,gradient,startPoint,endPoint, option)
             
             CGContextRestoreGState(currentContext);
+            
+            //Border and display of the rainbow
             
             borderColor.set()
             CGContextStrokeRectWithWidth(context, rect, borderWidth)
@@ -106,6 +111,7 @@ class KnobBankView: UIView {
         }
     }
     
+    //Places subviews on the screen
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -162,22 +168,26 @@ class KnobBankView: UIView {
         triSwitch.backgroundColor = UIColor.clearColor()
     }
     
+    //Func for tracking the value of the knob
     func knobValueChanged() {
         print("knob angle changed to: \(widthKnob?.angle)")
     }
     
+    //An initialization function
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setup()
     }
     
+    //Goes with the function above to supply a super of the decoder
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         setup()
     }
     
+    //The actual setup function called in the init
     private func setup() {
         
         widthKnob = Knob()

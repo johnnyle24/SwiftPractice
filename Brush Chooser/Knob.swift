@@ -12,6 +12,8 @@ class Knob: UIControl {
     private var _angle: Double = M_PI / 6.0
     private var _knobRect: CGRect = CGRectZero
     
+    //Controls touch mechanisms
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         let touch: UITouch = touches.first!
@@ -47,8 +49,6 @@ class Knob: UIControl {
         let lineWidth: CGFloat = 3
         let increment: CGFloat = 5
         let lineWidth2: CGFloat = 0.1
-//        let knobRect: CGRect = CGRectMake(lineWidth * 0.5, lineWidth * 0.5, bounds.width - lineWidth, bounds.width - lineWidth)
-        
         
         //The KNOB Circle
         
@@ -130,11 +130,6 @@ class Knob: UIControl {
         CGContextSetLineWidth(context, lineWidth2)
         CGContextStrokePath(context)
         
-        //Knob Circle
-        
-//        let originX: CGFloat = _knobRect.width/2
-//        let originY: CGFloat = _knobRect.height/2
-        
         //Knob Circle Angle Calculator
         
         let knobRadius: CGFloat = _knobRect.width * 0.39
@@ -151,12 +146,6 @@ class Knob: UIControl {
         CGContextSetFillColorWithColor(context, UIColor.blackColor().CGColor)
         CGContextFillEllipseInRect(context, nibRect)
         
-        // Knob Line
-        
-//        CGContextMoveToPoint(context, originX, originY)
-//        CGContextAddLineToPoint(context, nibRect.origin.x, nibRect.origin.y)
-//        CGContextDrawPath(context, CGPathDrawingMode.Stroke)
-        
         CGContextAddEllipseInRect(context, nibRect)
         CGContextSetFillColorWithColor(context, UIColor.clearColor().CGColor)
         CGContextFillPath(context)
@@ -166,6 +155,7 @@ class Knob: UIControl {
         
     }
     
+    //A function called to set new angles and refresh the screen with each knob turn
     var angle: Double {
         get { return _angle }
         set{

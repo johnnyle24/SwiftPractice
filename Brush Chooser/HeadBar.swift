@@ -14,6 +14,8 @@ class HeadBar: UIView {
         
         let context: CGContext? = UIGraphicsGetCurrentContext()
         
+        //Box for the border
+        
         let lineWidth: CGFloat = 5
         
         var rectRect: CGRect = CGRectZero
@@ -26,7 +28,7 @@ class HeadBar: UIView {
         CGContextSetLineWidth(context, lineWidth)
         CGContextStrokePath(context)
         
-        // Gradient!!!!!
+        // Gradient!
         let currentContext = UIGraphicsGetCurrentContext()
         
         CGContextSaveGState(currentContext);
